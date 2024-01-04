@@ -1,81 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
     <title>Formulario de Prueba</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <header>
-        <h1>Formulario de Registro</h1>
+      <h1>Formulario de Registro</h1>
     </header>
 
-    <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DDx0000002D1O" method="POST">
+    <!--  ----------------------------------------------------------------------  -->
+    <!--  NOTA: Agregue el siguiente elemento <META> a su página <HEAD>.  Si es   -->
+    <!--  preciso, modifique el parámetro charset para especificar el conjunto    -->
+    <!--  de caracteres de su página HTML.                                        -->
+    <!--  ----------------------------------------------------------------------  -->
 
-      <input type=hidden name="oid" value="00DDx0000002D1O"/>
-      <input type=hidden name="retURL" value="https://energy-ability-2508--desarrollo.sandbox.my.site.com"/>
-      
-        <label for="first_name">Nombre del Padre o la Madre </label>
-      <input type="text" maxlength="100" id="first_name" name="first_name" required/>
+    <!-- <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8"> -->
 
-        <label for="00NDx0000029iro">Nombres del Estudiante:</label>
-      <input type="text" id="00NDx0000029iro" name="00NDx0000029iro" maxlength="200" required/>
+    <!--  ----------------------------------------------------------------------  -->
+    <!--  NOTA: Agregue el siguiente elemento <FORM> a su página.                 -->
+    <!--  ----------------------------------------------------------------------  -->
 
+    <form
+      action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DDx0000002D1O"
+      method="POST"
+    >
+      <input type="hidden" name="oid" value="00DDx0000002D1O" />
+      <input
+        type="hidden"
+        name="retURL"
+        value="https://energy-ability-2508--desarrollo.sandbox.my.site.com"
+      />
 
-        <label for="apellidos">Apellidos del Estudiante:</label>
-      <input type="text" id="apellidos" name="apellidos" maxlength="200" required/>
+      <!--  ----------------------------------------------------------------------  -->
+      <!--  NOTA: Estos campos son elementos de depuración opcionales. Elimine      -->
+      <!--  los comentarios de estas líneas si desea realizar una prueba en el      -->
+      <!--  modo de depuración.                                                     -->
+      <!--  <input type="hidden" name="debug" value=1>                              -->
+      <!--  <input type="hidden" name="debugEmail"                                  -->
+      <!--  value="cristhian.velez@digitaltrustedadvisor.com">                      -->
+      <!--  ----------------------------------------------------------------------  -->
 
-        <label for="00NDx0000029Tcy">Fecha de Nacimiento del Estudiante:</label>
-      	<input type="text" id="00NDx0000029Tcy" name="00NDx0000029Tcy" required/>
+      <label for="first_name">Nombre del Padre o la Madre </label>
+      <input
+        type="text"
+        maxlength="100"
+        id="first_name"
+        name="first_name"
+        required
+      />
 
-        <label for="phone">Telefono del Contacto</label>
-      	<input type="tel" id="phone" name="phone" required/>
-      
-      	<label for="email">Correo Electronico:</label>
-     	<input type="email" id="email" name="email"/>
-      
-        <label for="state">Estado/Provincia</label>
-        <input id="state" name="state" />
+      <label for="last_name">Apellidos del Padre o la Madre </label>
+      <input
+        type="text"
+        maxlength="100"
+        id="last_name"
+        name="last_name"
+        required
+      />
 
-        <label for="city">Ciudad:</label>
-        <input type="text" id="city" name="city" required>
-      
-      	<label for="00NDx0000029TdN">Sección de interes:</label>
-        <select  id="00NDx0000029TdN" name="00NDx0000029TdN" title="Sección de interes">
-          <option value="">--Ninguno--</option><option value="Kinder">Kinder</option>
-          <option value="Primaria">Primaria</option>
-          <option value="Secundaria">Secundaria</option>
-          <option value="Preparatoria">Preparatoria</option>
-        </select><br>
+      <label for="00NDx0000029iro">Nombres del Estudiante:</label>
+      <input
+        type="text"
+        id="00NDx0000029iro"
+        name="00NDx0000029iro"
+        maxlength="200"
+        required
+      />
 
-        <label for="00NDx0000029TdS">Grado de Interés:</label>
-        <select id="00NDx0000029TdS" name="00NDx0000029TdS" required>
-            <option >--Ninguno--</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-        </select>
+      <label for="apellidos">Apellidos del Estudiante:</label>
+      <input
+        type="text"
+        id="apellidos"
+        name="apellidos"
+        maxlength="200"
+        required
+      />
 
-        <label for="00NDx0000029TcZ">Escuela de Procedencia:</label>
-        <input type="text" id="00NDx0000029TcZ" name="00NDx0000029TcZ" required>
+      <label for="00NDx0000029Tcy">Fecha de Nacimiento del Estudiante:</label>
+      <input type="text" id="00NDx0000029Tcy" name="00NDx0000029Tcy" required />
 
-        <label for="lead_source">Cómo se enteró de nosotros:</label>
-        <select id="lead_source" name="lead_source" required>
-          <option value="">---Ninguno---</option>
-            <option value="Redes Sociales">Redes Sociales</option>
-            <option value="Recomendacion">Recomendación</option>
-            <option value="Motor de Busqueda">Motor de Búsqueda</option>
-            <option value="Google Maps">Google Maps</option>
-            <option value="Ubicacion">Ubicación</option>
-            <option value="Representativo">Representativo</option>
-        </select>
+      <label for="phone">Telefono del Contacto</label>
+      <input type="tel" id="phone" name="phone" required />
 
-        <input type="submit" value="Enviar">
+      <label for="email">Correo Electronico:</label>
+      <input type="email" id="email" name="email" />
+
+      <label for="state">Estado/Provincia</label>
+      <input id="state" name="state" />
+
+      <label for="city">Ciudad:</label>
+      <input type="text" id="city" name="city" required />
+
+      <label for="00NDx0000029TdN">Sección de interes:</label>
+      <select
+        id="00NDx0000029TdN"
+        name="00NDx0000029TdN"
+        title="Sección de interes"
+      >
+        <option value="">--Ninguno--</option>
+        <option value="Kinder">Kinder</option>
+        <option value="Primaria">Primaria</option>
+        <option value="Secundaria">Secundaria</option>
+        <option value="Preparatoria">Preparatoria</option></select
+      ><br />
+
+      <label for="00NDx0000029TdS">Grado de Interés:</label>
+      <select id="00NDx0000029TdS" name="00NDx0000029TdS" required>
+        <option>--Ninguno--</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+
+      <label for="00NDx0000029TcZ">Escuela de Procedencia:</label>
+      <input type="text" id="00NDx0000029TcZ" name="00NDx0000029TcZ" required />
+
+      <label for="lead_source">Cómo se enteró de nosotros:</label>
+      <select id="lead_source" name="lead_source" required>
+        <option value="">---Ninguno---</option>
+        <option value="Redes Sociales">Redes Sociales</option>
+        <option value="Recomendacion">Recomendación</option>
+        <option value="Motor de Busqueda">Motor de Búsqueda</option>
+        <option value="Google Maps">Google Maps</option>
+        <option value="Ubicacion">Ubicación</option>
+        <option value="Representativo">Representativo</option>
+      </select>
+
+      <input type="submit" value="Enviar" />
     </form>
-	</body>
+  </body>
 </html>
