@@ -43,7 +43,7 @@
       <!--  value="cristhian.velez@digitaltrustedadvisor.com">                      -->
       <!--  ----------------------------------------------------------------------  -->
 
-      <label for="first_name">Nombre del Padre o la Madre </label>
+      <label for="first_name">Nombre del Padre, la Madre, o del Tutor</label>
       <input
         type="text"
         maxlength="100"
@@ -52,7 +52,7 @@
         required
       />
 
-      <label for="last_name">Apellidos del Padre o la Madre </label>
+      <label for="last_name">Apellidos del Padre, la Madre, o del Tutor</label>
       <input
         type="text"
         maxlength="100"
@@ -79,8 +79,8 @@
         required
       />
 
-      <label for="00NDx0000029Tcy">Fecha de Nacimiento del Estudiante:</label>
-      <input type="text" id="00NDx0000029Tcy" name="00NDx0000029Tcy" required />
+      <label for="00NDx0000029Tcy">Fecha de Nacimiento del Estudiante (mm/dd/aaaa)</label>
+      <input type="text" id="00NDx0000029Tcy" name="00NDx0000029Tcy" required title="02/22/2023" />
 
       <label for="phone">Telefono del Contacto</label>
       <input type="tel" id="phone" name="phone" required />
@@ -99,8 +99,9 @@
         id="00NDx0000029TdN"
         name="00NDx0000029TdN"
         title="Sección de interes"
+        class="testClast1"
       >
-        <option value="">--Ninguno--</option>
+        <option value="Ninguno">--Ninguno--</option>
         <option value="Kinder">Kinder</option>
         <option value="Primaria">Primaria</option>
         <option value="Secundaria">Secundaria</option>
@@ -108,14 +109,9 @@
       ><br />
 
       <label for="00NDx0000029TdS">Grado de Interés:</label>
-      <select id="00NDx0000029TdS" name="00NDx0000029TdS" required>
-        <option>--Ninguno--</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
+      <select id="00NDx0000029TdS" name="00NDx0000029TdS" class="grado" required>
+        <option value="Ninguno">--Ninguno--</option>
+        <!-- la seccion se actualizara dinamicamente -->
       </select>
 
       <label for="00NDx0000029TcZ">Escuela de Procedencia:</label>
@@ -134,5 +130,41 @@
 
       <input type="submit" value="Enviar" />
     </form>
+    <script>
+      let $select = document.querySelector("#lead_source");
+      let $escuela = document.querySelector(".testClast1");
+      let $opcionGrado = document.querySelector(".grado");
+      $escuela.addEventListener('change', () => {
+        $opcionGrado.innerHTML = "";
+        let valorOptionEscuela = $escuela.value;
+        if(valorOptionEscuela == 'Kinder'){
+          addOptionSelect($opcionGrado, 'Primero de Kínder');
+          addOptionSelect($opcionGrado, 'Segundo de Kínder');
+          addOptionSelect($opcionGrado, 'Tercero de Kínder');
+        }else if(valorOptionEscuela == "Ninguno"){
+          addOptionSelect($opcionGrado, '--- Ninguno ---');
+        }else if(valorOptionEscuela == "Primaria"){
+          addOptionSelect($opcionGrado, 'Primero de Primaria');
+          addOptionSelect($opcionGrado, 'Segundo de Primaria');
+          addOptionSelect($opcionGrado, 'Tercero de Primaria');
+          addOptionSelect($opcionGrado, 'Cuarto de Primaria');
+          addOptionSelect($opcionGrado, 'Quinto de Primaria');
+          addOptionSelect($opcionGrado, 'Sesto de Primaria');
+        }else if(valorOptionEscuela == "Secundaria"){
+          addOptionSelect($opcionGrado, 'Primero de Secundaria');
+          addOptionSelect($opcionGrado, 'Segundo de Secundaria');
+          addOptionSelect($opcionGrado, 'Tercero de Secundaria');
+        }else if(valorOptionEscuela == "Preparatoria"){
+          addOptionSelect($opcionGrado, 'Primero de Preparatoria');
+          addOptionSelect($opcionGrado, 'Segundo de Preparatoria');
+        }
+      })
+
+      function addOptionSelect(selectName, optionText) {
+        let optionSelect = document.createElement("option");
+        optionSelect.text = optionText;
+        selectName.add(optionSelect);
+      }
+    </script>
   </body>
 </html>
